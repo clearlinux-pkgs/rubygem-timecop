@@ -4,7 +4,7 @@
 #
 Name     : rubygem-timecop
 Version  : 0.7.4
-Release  : 2
+Release  : 3
 URL      : https://rubygems.org/downloads/timecop-0.7.4.gem
 Source0  : https://rubygems.org/downloads/timecop-0.7.4.gem
 Summary  : No detailed summary available
