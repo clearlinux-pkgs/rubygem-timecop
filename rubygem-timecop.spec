@@ -4,7 +4,7 @@
 #
 Name     : rubygem-timecop
 Version  : 0.8.0
-Release  : 4
+Release  : 5
 URL      : https://rubygems.org/downloads/timecop-0.8.0.gem
 Source0  : https://rubygems.org/downloads/timecop-0.8.0.gem
 Summary  : No detailed summary available
@@ -12,9 +12,6 @@ Group    : Development/Tools
 License  : MIT
 BuildRequires : ruby
 BuildRequires : rubygem-bundler
-BuildRequires : rubygem-metaclass
-BuildRequires : rubygem-minitest
-BuildRequires : rubygem-mocha
 BuildRequires : rubygem-rdoc
 BuildRequires : rubygem-rubygems-tasks
 
@@ -49,55 +46,22 @@ cp -pa .%{_bindir}/* \
 %{buildroot}%{_bindir}/
 fi
 
-%check
-export http_proxy=http://127.0.0.1:9/
-export https_proxy=http://127.0.0.1:9/
-export no_proxy=localhost
-pushd %{buildroot}%{gem_dir}/gems/timecop-0.8.0
-ruby -v -I.:lib:test test*/test_*.rb
-ruby -v -I.:lib:test test*/*_test.rb
-popd
-
 
 %files
 %defattr(-,root,root,-)
-/usr/lib64/ruby/gems/2.2.0/cache/timecop-0.8.0.gem
-/usr/lib64/ruby/gems/2.2.0/doc/timecop-0.8.0/ri/Date/cdesc-Date.ri
-/usr/lib64/ruby/gems/2.2.0/doc/timecop-0.8.0/ri/DateTime/cdesc-DateTime.ri
-/usr/lib64/ruby/gems/2.2.0/doc/timecop-0.8.0/ri/Time/cdesc-Time.ri
-/usr/lib64/ruby/gems/2.2.0/doc/timecop-0.8.0/ri/Timecop/SafeModeException/cdesc-SafeModeException.ri
-/usr/lib64/ruby/gems/2.2.0/doc/timecop-0.8.0/ri/Timecop/SafeModeException/new-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/timecop-0.8.0/ri/Timecop/TimeStackItem/cdesc-TimeStackItem.ri
-/usr/lib64/ruby/gems/2.2.0/doc/timecop-0.8.0/ri/Timecop/baseline%3d-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/timecop-0.8.0/ri/Timecop/baseline%3d-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/timecop-0.8.0/ri/Timecop/baseline-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/timecop-0.8.0/ri/Timecop/cdesc-Timecop.ri
-/usr/lib64/ruby/gems/2.2.0/doc/timecop-0.8.0/ri/Timecop/freeze-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/timecop-0.8.0/ri/Timecop/frozen%3f-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/timecop-0.8.0/ri/Timecop/return-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/timecop-0.8.0/ri/Timecop/return-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/timecop-0.8.0/ri/Timecop/return_to_baseline-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/timecop-0.8.0/ri/Timecop/return_to_baseline-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/timecop-0.8.0/ri/Timecop/safe_mode%3d-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/timecop-0.8.0/ri/Timecop/safe_mode%3f-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/timecop-0.8.0/ri/Timecop/scale-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/timecop-0.8.0/ri/Timecop/send_travel-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/timecop-0.8.0/ri/Timecop/travel-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/timecop-0.8.0/ri/cache.ri
-/usr/lib64/ruby/gems/2.2.0/doc/timecop-0.8.0/ri/page-LICENSE.ri
-/usr/lib64/ruby/gems/2.2.0/doc/timecop-0.8.0/ri/page-README_markdown.ri
-/usr/lib64/ruby/gems/2.2.0/gems/timecop-0.8.0/LICENSE
-/usr/lib64/ruby/gems/2.2.0/gems/timecop-0.8.0/README.markdown
-/usr/lib64/ruby/gems/2.2.0/gems/timecop-0.8.0/Rakefile
-/usr/lib64/ruby/gems/2.2.0/gems/timecop-0.8.0/lib/timecop.rb
-/usr/lib64/ruby/gems/2.2.0/gems/timecop-0.8.0/lib/timecop/time_extensions.rb
-/usr/lib64/ruby/gems/2.2.0/gems/timecop-0.8.0/lib/timecop/time_stack_item.rb
-/usr/lib64/ruby/gems/2.2.0/gems/timecop-0.8.0/lib/timecop/timecop.rb
-/usr/lib64/ruby/gems/2.2.0/gems/timecop-0.8.0/lib/timecop/version.rb
-/usr/lib64/ruby/gems/2.2.0/gems/timecop-0.8.0/test/run_tests.sh
-/usr/lib64/ruby/gems/2.2.0/gems/timecop-0.8.0/test/test_helper.rb
-/usr/lib64/ruby/gems/2.2.0/gems/timecop-0.8.0/test/time_stack_item_test.rb
-/usr/lib64/ruby/gems/2.2.0/gems/timecop-0.8.0/test/timecop_test.rb
-/usr/lib64/ruby/gems/2.2.0/gems/timecop-0.8.0/test/timecop_without_date_but_with_time_test.rb
-/usr/lib64/ruby/gems/2.2.0/gems/timecop-0.8.0/test/timecop_without_date_test.rb
-/usr/lib64/ruby/gems/2.2.0/specifications/timecop-0.8.0.gemspec
+/usr/lib64/ruby/gems/2.3.0/cache/timecop-0.8.0.gem
+/usr/lib64/ruby/gems/2.3.0/gems/timecop-0.8.0/LICENSE
+/usr/lib64/ruby/gems/2.3.0/gems/timecop-0.8.0/README.markdown
+/usr/lib64/ruby/gems/2.3.0/gems/timecop-0.8.0/Rakefile
+/usr/lib64/ruby/gems/2.3.0/gems/timecop-0.8.0/lib/timecop.rb
+/usr/lib64/ruby/gems/2.3.0/gems/timecop-0.8.0/lib/timecop/time_extensions.rb
+/usr/lib64/ruby/gems/2.3.0/gems/timecop-0.8.0/lib/timecop/time_stack_item.rb
+/usr/lib64/ruby/gems/2.3.0/gems/timecop-0.8.0/lib/timecop/timecop.rb
+/usr/lib64/ruby/gems/2.3.0/gems/timecop-0.8.0/lib/timecop/version.rb
+/usr/lib64/ruby/gems/2.3.0/gems/timecop-0.8.0/test/run_tests.sh
+/usr/lib64/ruby/gems/2.3.0/gems/timecop-0.8.0/test/test_helper.rb
+/usr/lib64/ruby/gems/2.3.0/gems/timecop-0.8.0/test/time_stack_item_test.rb
+/usr/lib64/ruby/gems/2.3.0/gems/timecop-0.8.0/test/timecop_test.rb
+/usr/lib64/ruby/gems/2.3.0/gems/timecop-0.8.0/test/timecop_without_date_but_with_time_test.rb
+/usr/lib64/ruby/gems/2.3.0/gems/timecop-0.8.0/test/timecop_without_date_test.rb
+/usr/lib64/ruby/gems/2.3.0/specifications/timecop-0.8.0.gemspec
