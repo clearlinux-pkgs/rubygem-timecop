@@ -4,7 +4,7 @@
 #
 Name     : rubygem-timecop
 Version  : 0.8.0
-Release  : 6
+Release  : 7
 URL      : https://rubygems.org/downloads/timecop-0.8.0.gem
 Source0  : https://rubygems.org/downloads/timecop-0.8.0.gem
 Summary  : No detailed summary available
@@ -12,6 +12,9 @@ Group    : Development/Tools
 License  : MIT
 BuildRequires : ruby
 BuildRequires : rubygem-bundler
+BuildRequires : rubygem-metaclass
+BuildRequires : rubygem-minitest
+BuildRequires : rubygem-mocha
 BuildRequires : rubygem-rdoc
 BuildRequires : rubygem-rubygems-tasks
 
@@ -45,6 +48,15 @@ mkdir -p %{buildroot}%{_bindir}
 cp -pa .%{_bindir}/* \
 %{buildroot}%{_bindir}/
 fi
+
+%check
+export http_proxy=http://127.0.0.1:9/
+export https_proxy=http://127.0.0.1:9/
+export no_proxy=localhost
+pushd %{buildroot}%{gem_dir}/gems/timecop-0.8.0
+ruby -v -I.:lib:test test*/test_*.rb
+ruby -v -I.:lib:test test*/*_test.rb
+popd
 
 
 %files
